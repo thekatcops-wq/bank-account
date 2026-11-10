@@ -21,6 +21,15 @@ def withdraw(self, amount):
 def check_balance(self):
     """Перевірка балансу"""
     print(f"Баланс рахунку {self.owner}: {self.balance}$")
+
+def transfer(self, target_account, amount):
+    """Метод для переказу грошей на інший рахунок"""
+    if 0 < amount <= self.balance:
+        self.balance -= amount
+        target_account.balance += amount
+        print(f"[->] Переказ {amount}$ для {target_account.owner}. Ваш баланс: {self.balance}$")
+    else:
+        print("[-] Помилка: недостатньо коштів для переказу.")
 Перевірка роботи (цей блок виконається, якщо запустити файл)
 if name == "main":
 print("--- Створення рахунку ---")
